@@ -31,15 +31,15 @@ The following dependencies need to be downloaded and installed for Feed Plugin.
 | priority | 100 | Feed plugin priority |
 | feed | [] | feed specific data |
 
-### Create feed
+### Usage
 
 Inside `project/plugin/feed/settings.yaml` you may create unlimited feed for you entries.
 
-**Example:**
+Lets create RSS, ATOM and JSON feed for blog collection:
 
 ```yaml
 feed:
-  blog-json:
+  blog-rss:
     id: blog
     options:
       title: Blog
@@ -48,8 +48,25 @@ feed:
       length: 400
       format: rss
       route: '/blog.rss'
+  blog-atom:
+    id: blog
+    options:
+      title: Blog
+      description: Blog description
+      collection: true
+      length: 400
+      format: json
+      route: '/blog.atom'
+  blog-json:
+    id: blog
+    options:
+      title: Blog
+      description: Blog description
+      collection: true
+      length: 400
+      format: json
+      route: '/blog.json'
 ```
-
 
 
 ## LICENSE
