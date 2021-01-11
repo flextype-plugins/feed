@@ -33,7 +33,7 @@ The following dependencies need to be downloaded and installed for Feed Plugin.
 
 ### Usage
 
-Inside `project/plugin/feed/settings.yaml` you may create unlimited feed for you entries.
+Inside `project/config/plugin/feed/settings.yaml` you may create unlimited feed for you entries.
 
 Lets create RSS, ATOM and JSON feed for blog collection:
 
