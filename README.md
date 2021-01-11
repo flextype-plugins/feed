@@ -29,11 +29,11 @@ The following dependencies need to be downloaded and installed for Feed Plugin.
 |---|---|---|
 | enabled | true | true or false to disable the plugin |
 | priority | 100 | Feed plugin priority |
-| feed | [] | feed specific data |
+| feed | [] | Feed specific data |
 
 ### Usage
 
-Inside `project/config/plugin/feed/settings.yaml` you may create unlimited feed for you entries.
+Inside `project/config/plugins/feed/settings.yaml` you may create unlimited feed for you entries.
 
 Lets create RSS, ATOM and JSON feed for blog collection:
 
@@ -77,7 +77,6 @@ You may easily display feed urls from example above in TWIG templates:
 <a href="{{ url() }}/blog.rss">RSS</a>
 <a href="{{ url() }}/blog.json">JSON</a>
 ```
-
 
 ## LICENSE
 [The MIT License (MIT)](https://github.com/flextype-plugins/feed/blob/master/LICENSE.txt)
