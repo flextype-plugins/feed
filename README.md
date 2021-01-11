@@ -68,6 +68,16 @@ feed:
       route: '/blog.json'
 ```
 
+#### Display feed urls in the TWIG templates
+
+You may easily display feed urls from example above in TWIG templates:
+
+```twig
+<a href="{{ url() }}/blog.atom">Atom 1.0</a>
+<a href="{{ url() }}/blog.rss">RSS</a>
+<a href="{{ url() }}/blog.json">JSON</a>
+```
+
 
 ## LICENSE
 [The MIT License (MIT)](https://github.com/flextype-plugins/feed/blob/master/LICENSE.txt)
