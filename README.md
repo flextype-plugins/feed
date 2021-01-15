@@ -53,7 +53,7 @@ feed:
       title: Blog
       description: Blog description
       collection: true
-      format: json
+      format: atom
       route: '/blog.atom'
   blog-json:
     id: blog
