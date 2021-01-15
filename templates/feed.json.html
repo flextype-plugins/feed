@@ -12,7 +12,7 @@
 
 {% set itemList = [] %}
 {% for entry in entries %}
-    {%- set content_html = strings(entry.content).limit(item.options.length).toString()|shortcode|markdown|raw -%}
+    {%- set content_html = entry.content|shortcode|markdown|raw -%}
     {%- set post = {
         "title": entry.title|e,
         "date_published": entry.published_at|date('Y-m-d\\TH:i:sP'),

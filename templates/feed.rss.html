@@ -26,7 +26,7 @@
             <pubDate>{{ entry.published_at|date('D, d M Y H:i:s O') }}</pubDate>
             <description>
                 <![CDATA[
-                {{ strings(entry.content).limit(item.options.length).toString()|shortcode|markdown|raw }}
+                {{ entry.content|shortcode|markdown|raw }}
                 ]]>
             </description>
         </item>

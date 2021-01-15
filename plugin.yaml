@@ -3,7 +3,7 @@ version: 1.0.0
 description: Feed plugin for Flextype
 author:
   name: Sergey Romanenko
-  email: awilum@yandex.ru
+  email: sergey.romanenko@flextype.org
   url: https://flextype.org
 homepage: https://github.com/flextype-plugins/feed
 documentation: https://github.com/flextype-plugins/feed
@@ -15,5 +15,5 @@ icon:
 license: MIT
 
 dependencies:
-  flextype: 0.9.15
+  flextype: 0.9.16
   twig: '>=2.0.0'

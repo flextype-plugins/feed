@@ -6,29 +6,15 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 $feed = flextype('registry')->get('plugins.feed.settings.feed');
 
 if (isset($feed) and count($feed) > 0) {
-    foreach (flextype('registry')->get('plugins.feed.settings.feed') as $item) {
+    foreach ($feed as $item) {
 
         $cacheID = strings('feed-collection-' . $item['id'])->hash()->toString();
 
-        flextype('emitter')->addListener('onEntriesCreate', function () use ($cacheID) {
-            flextype('cache')->delete($cacheID);
-        });
-
-        flextype('emitter')->addListener('onEntriesDelete', function () use ($cacheID) {
-            flextype('cache')->delete($cacheID);
-        });
-
-        flextype('emitter')->addListener('onEntriesMove', function () use ($cacheID) {
-            flextype('cache')->delete($cacheID);
-        });
-
-        flextype('emitter')->addListener('onEntriesCopy', function () use ($cacheID) {
-            flextype('cache')->delete($cacheID);
-        });
-
-        flextype('emitter')->addListener('onEntriesUpdate', function () use ($cacheID) {
-            flextype('cache')->delete($cacheID);
-        });
+        flextype('emitter')->addListener('onEntriesCreate', fn () => flextype('cache')->delete($cacheID));
+        flextype('emitter')->addListener('onEntriesDelete', fn () => flextype('cache')->delete($cacheID));
+        flextype('emitter')->addListener('onEntriesMove', fn () => flextype('cache')->delete($cacheID));
+        flextype('emitter')->addListener('onEntriesCopy', fn () => flextype('cache')->delete($cacheID));
+        flextype('emitter')->addListener('onEntriesUpdate', fn () => flextype('cache')->delete($cacheID));
 
         flextype()->get($item['options']['route'], function (Request $request, Response $response, array $args) use ($item, $cacheID) {
 
