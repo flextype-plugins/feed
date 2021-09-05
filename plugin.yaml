@@ -10,8 +10,8 @@ documentation: https://github.com/flextype-plugins/feed
 changelog: https://github.com/flextype-plugins/feed/blob/master/CHANGELOG.md
 bugs: https://github.com/flextype-plugins/feed/issues
 icon:
-  name: map-marked-alt
-  set: "fontawesome|solid"
+  name: rss
+  set: bootstrap
 license: MIT
 
 dependencies:
