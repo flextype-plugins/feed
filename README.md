@@ -70,9 +70,9 @@ feed:
 You may easily display feed urls from example above in TWIG templates:
 
 ```twig
-<a href="{{ url() }}/blog.atom">Atom 1.0</a>
-<a href="{{ url() }}/blog.rss">RSS</a>
-<a href="{{ url() }}/blog.json">JSON</a>
+<a href="{{ getBaseUrl() }}/blog.atom">Atom 1.0</a>
+<a href="{{ getBaseUrl() }}/blog.rss">RSS</a>
+<a href="{{ getBaseUrl() }}/blog.json">JSON</a>
 ```
 
 ## LICENSE
