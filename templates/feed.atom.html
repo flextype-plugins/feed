@@ -12,24 +12,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>{{ item.options.title }}</title>
-    <link href="{{ url() ~ item.options.route }}" rel="self" />
+    <link href="{{ getBaseUrl() ~ item.options.route }}" rel="self" />
     <subtitle>{{ item.options.description }}</subtitle>
     <updated>{{ feed_updated|date("Y-m-d\\TH:i:sP") }}</updated>
     <author>
-        <name>{{ flextype.registry.get('plugins.site.settings.author.name') }}</name>
+        <name>{{ registry().get('plugins.site.settings.author.name') }}</name>
     </author>
-    <id>{{ url() }}/{{ item.id }}</id>
+    <id>{{ getBaseUrl() }}/{{ item.id }}</id>
     {% for entry in entries %}
     <entry>
         <title>{{ entry.title|e }}</title>
-        <id>{{ url() }}/{{ entry.id }}</id>
+        <id>{{ getBaseUrl() }}/{{ entry.id }}</id>
         {% if item.options.show_last_modified %}
         <updated>{{ item.modified_at|date("Y-m-d\\TH:i:sP") }}</updated>
         {% else %}
         <updated>{{ item.published_at|date("Y-m-d\\TH:i:sP") }}</updated>
         {% endif %}
         <published>{{ item.published_at|date("Y-m-d\\TH:i:sP") }}</published>
-        <link href="{{ url() }}/{{ entry.id }}"/>
+        <link href="{{ getBaseUrl() }}/{{ entry.id }}"/>
         <content type="html">
             <![CDATA[
             {{ entry.content|shortcode|markdown|raw }}

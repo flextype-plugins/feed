@@ -13,16 +13,16 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>{{ item.options.title }}</title>
-        <link>{{ url() }}/{{ item.id }}</link>
-        <atom:link href="{{ url() ~ item.options.route }}" rel="self" type="application/rss+xml"/>
+        <link>{{ getBaseUrl() }}/{{ item.id }}</link>
+        <atom:link href="{{ getBaseUrl() ~ item.options.route }}" rel="self" type="application/rss+xml"/>
         <description>{{ item.options.description }}</description>
-        <language>{% if item.options.language %}{{ item.options.language }}{% else %}{{ flextype.registry.get('flextype.settings.locale') }}{% endif %}</language>
+        <language>{% if item.options.language %}{{ item.options.language }}{% else %}{{ registry().get('flextype.settings.locale') }}{% endif %}</language>
         <lastBuildDate>{{ lastBuildDate|date('D, d M Y H:i:s O') }}</lastBuildDate>
         {% for entry in entries %}
         <item>
             <title>{{ entry.title|e }}</title>
-            <link>{{ url() }}/{{ entry.id }}</link>
-            <guid>{{ url() }}/{{ entry.id }}</guid>
+            <link>{{ getBaseUrl() }}/{{ entry.id }}</link>
+            <guid>{{ getBaseUrl() }}/{{ entry.id }}</guid>
             <pubDate>{{ entry.published_at|date('D, d M Y H:i:s O') }}</pubDate>
             <description>
                 <![CDATA[

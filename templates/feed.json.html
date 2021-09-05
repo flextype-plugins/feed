@@ -1,13 +1,13 @@
 {# Format specification: https://www.jsonfeed.org/version/1/ #}
 {% extends 'plugins/feed/templates/partials/base.html' %}
-{% if item.options.url %}{% set home_page_url = item.options.url %}{% else %}{% set home_page_url = url() %}{% endif %}
+{% if item.options.url %}{% set home_page_url = item.options.url %}{% else %}{% set home_page_url = getBaseUrl() %}{% endif %}
 {% set jsonfeed = {
     "version" : "https://jsonfeed.org/version/1",
     "title": item.options.title,
     "home_page_url": home_page_url,
-    "feed_url": url() ~ item.options.route,
+    "feed_url": getBaseUrl() ~ item.options.route,
     "description": item.options.description,
-    "author": {"name": flextype.registry.get('plugins.site.settings.author.name')}
+    "author": {"name": registry().get('plugins.site.settings.author.name')}
 } %}
 
 {% set itemList = [] %}
@@ -17,7 +17,7 @@
         "title": entry.title|e,
         "date_published": entry.published_at|date('Y-m-d\\TH:i:sP'),
         "id": entry.id,
-        "url": url() ~ entry.id,
+        "url": getBaseUrl() ~ entry.id,
         "content_html": content_html
     } %}
 
