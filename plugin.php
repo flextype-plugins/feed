@@ -3,29 +3,29 @@
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-$feed = flextype('registry')->get('plugins.feed.settings.feed');
+$feed = registry()->get('plugins.feed.settings.feed');
 
 if (isset($feed) and count($feed) > 0) {
     foreach ($feed as $item) {
 
         $cacheID = strings('feed-collection-' . $item['id'])->hash()->toString();
 
-        flextype('emitter')->addListener('onEntriesCreate', fn () => flextype('cache')->delete($cacheID));
-        flextype('emitter')->addListener('onEntriesDelete', fn () => flextype('cache')->delete($cacheID));
-        flextype('emitter')->addListener('onEntriesMove', fn () => flextype('cache')->delete($cacheID));
-        flextype('emitter')->addListener('onEntriesCopy', fn () => flextype('cache')->delete($cacheID));
-        flextype('emitter')->addListener('onEntriesUpdate', fn () => flextype('cache')->delete($cacheID));
+        emitter()->addListener('onEntriesCreate', fn () => cache()->delete($cacheID));
+        emitter()->addListener('onEntriesDelete', fn () => cache()->delete($cacheID));
+        emitter()->addListener('onEntriesMove', fn () => cache()->delete($cacheID));
+        emitter()->addListener('onEntriesCopy', fn () => cache()->delete($cacheID));
+        emitter()->addListener('onEntriesUpdate', fn () => cache()->delete($cacheID));
 
-        flextype()->get($item['options']['route'], function (Request $request, Response $response, array $args) use ($item, $cacheID) {
+        app()->get($item['options']['route'], function (Request $request, Response $response, array $args) use ($item, $cacheID) {
 
-            if (flextype('cache')->has($cacheID)) {
-                $entries = flextype('cache')->get($cacheID);
+            if (cache()->has($cacheID)) {
+                $entries = cache()->get($cacheID);
             } else {
-                $entries = flextype('entries')
+                $entries = entries()
                                 ->fetch($item['id'], $item['options'])
                                 ->sortBy('published_at', 'DESC');
 
-                flextype('cache')->set($cacheID, $entries);
+                cache()->set($cacheID, $entries);
             }
 
             switch ($item['options']['format']) {
@@ -44,7 +44,7 @@ if (isset($feed) and count($feed) > 0) {
                     break;
             }
 
-            return flextype('twig')->render($response, $template, ['entries' => $entries, 'item' => $item]);
+            return twig()->render($response, $template, ['entries' => $entries, 'item' => $item]);
         });
     }
 }
