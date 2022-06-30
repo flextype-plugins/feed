@@ -1,6 +1,6 @@
 name: Feed
 version: 2.0.0
-description: Feed plugin for Flextype
+description: Feed plugin for Flextype supports Atom 1.0, RSS and JSON feed types and allows you to generate feeds for entries.
 author:
   name: Sergey Romanenko
   email: awilum@msm.com
