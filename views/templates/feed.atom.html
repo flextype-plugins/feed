@@ -1,8 +1,8 @@
 {# Format specification: https://tools.ietf.org/html/rfc4287 #}
-{% extends 'plugins/feed/templates/partials/base.html' %}
+{% extends 'plugins/feed/views/templates/partials/base.html' %}
 {% set feed_updated = 0 %}
 {% for entry in entries %}
-    {%- if item.options.show_last_modified -%}
+    {%- if feed.options.feed.show_last_modified -%}
         {%- set feed_updated = max(feed_updated, entry.modified_at) -%}
     {%- else %}
         {%- set feed_updated = max(feed_updated, entry.published_at) -%}
@@ -11,28 +11,28 @@
 {% block feed %}
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>{{ item.options.title }}</title>
-    <link href="{{ getBaseUrl() ~ item.options.route }}" rel="self" />
-    <subtitle>{{ item.options.description }}</subtitle>
+    <title>{{ feed.options.feed.title }}</title>
+    <link href="{{ getBaseUrl() ~ feed.options.feed.route }}" rel="self" />
+    <subtitle>{{ feed.options.feed.description }}</subtitle>
     <updated>{{ feed_updated|date("Y-m-d\\TH:i:sP") }}</updated>
     <author>
         <name>{{ registry().get('plugins.site.settings.author.name') }}</name>
     </author>
-    <id>{{ getBaseUrl() }}/{{ item.id }}</id>
+    <id>{{ getBaseUrl() }}/{{ feed.id }}</id>
     {% for entry in entries %}
     <entry>
         <title>{{ entry.title|e }}</title>
         <id>{{ getBaseUrl() }}/{{ entry.id }}</id>
-        {% if item.options.show_last_modified %}
-        <updated>{{ item.modified_at|date("Y-m-d\\TH:i:sP") }}</updated>
+        {% if feed.options.feed.show_last_modified %}
+        <updated>{{ entry.modified_at|date("Y-m-d\\TH:i:sP") }}</updated>
         {% else %}
-        <updated>{{ item.published_at|date("Y-m-d\\TH:i:sP") }}</updated>
+        <updated>{{ entry.published_at|date("Y-m-d\\TH:i:sP") }}</updated>
         {% endif %}
-        <published>{{ item.published_at|date("Y-m-d\\TH:i:sP") }}</published>
-        <link href="{{ getBaseUrl() }}/{{ entry.id }}"/>
+        <published>{{ entry.published_at|date("Y-m-d\\TH:i:sP") }}</published>
+        <link href="{{ getBaseUrl() }}/{{ id }}"/>
         <content type="html">
             <![CDATA[
-            {{ entry.content|shortcode|markdown|raw }}
+            {{ entry.content|markdown|raw }}
             ]]>
         </content>
     </entry>
