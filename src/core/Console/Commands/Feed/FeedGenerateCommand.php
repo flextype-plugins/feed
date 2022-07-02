@@ -35,6 +35,8 @@ class FeedGenerateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $elapsedTimeStartPoint = microtime(true);
+
         $result = Command::SUCCESS;
        
         $feedPath = $input->getOption('feed-path') ? $input->getOption('feed-path') : registry()->get('plugins.feed.settings.static.feed_path');
@@ -52,8 +54,6 @@ class FeedGenerateCommand extends Command
        $feeds = registry()->get('plugins.feed.settings.feeds');
 
         if (is_array($feeds) && count($feeds) > 0) {
-
-            $elapsedTimeStartPoint = microtime(true);
 
             // Start site generation process...
             $output->write(

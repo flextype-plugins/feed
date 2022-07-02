@@ -6,3 +6,12 @@ priority: 100
 
 # Feeds
 feeds: []
+
+# Settings for static feeds generation
+static:
+
+  # Feeds path (without trailing and without starting slash)
+  feed_path: '_site'
+
+  # Site url (without trailing slash)
+  feed_url: ''
