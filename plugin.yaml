@@ -5,13 +5,14 @@ author:
   name: Sergey Romanenko
   email: awilum@msm.com
   url: https://awilum.github.io
-homepage: https://github.com/flextype-plugins/feed
-documentation: https://github.com/flextype-plugins/feed
+homepage: https://awilum.github.io/flextype/downloads/extend/plugins/feed
+documentation: https://awilum.github.io/flextype/downloads/extend/plugins/feed
 changelog: https://github.com/flextype-plugins/feed/blob/master/CHANGELOG.md
 bugs: https://github.com/flextype-plugins/feed/issues
 icon:
   name: rss
-  set: "bootstrap"
+  set: fontawesome|solid
+category: seo
 license: MIT
 
 dependencies:

@@ -3,7 +3,7 @@
     "type": "project",
     "description": "Feed plugin for Flextype supports Atom 1.0, RSS and JSON feed types and allows you to generate feeds for entries.",
     "keywords": ["feed", "plugin", "flextype"],
-    "homepage": "https://github.com/flextype-plugins/feed",
+    "homepage": "https://awilum.github.io/flextype/downloads/extend/plugins/feed",
     "license": "MIT",
     "authors": [
         {
