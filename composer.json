@@ -1,0 +1,31 @@
+{
+    "name": "flextype-plugins/feed",
+    "type": "project",
+    "description": "Feed plugin for Flextype supports Atom 1.0, RSS and JSON feed types and allows you to generate feeds for entries.",
+    "keywords": ["feed", "plugin", "flextype"],
+    "homepage": "https://github.com/flextype-plugins/feed",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergey Romanenko",
+            "email": "awilum@msn.com",
+            "homepage": "https://awilum.github.io"
+        }
+    ],
+    "support": {
+      "issues": "https://github.com/flextype-plugins/feed/issues"
+    },
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-json": "*"
+    },
+    "config": {
+        "apcu-autoloader": true,
+        "optimize-autoloader": true
+    },
+    "autoload": {
+        "classmap": [
+            "src"
+        ]
+    }
+}

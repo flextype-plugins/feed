@@ -1,7 +1,31 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Flextype\Plugin\Feed;
+
+use Flextype\Plugin\Feed\Console\Commands\Feed\FeedGenerateCommand;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+
+/**
+ * Ensure vendor libraries exist
+ */
+! is_file($feedAutoload = __DIR__ . '/vendor/autoload.php') and exit('Please run: <i>composer install</i> for feed plugin');
+
+/**
+ * Register The Auto Loader
+ *
+ * Composer provides a convenient, automatically generated class loader for
+ * our application. We just need to utilize it! We'll simply require it
+ * into the script here so that we don't have to worry about manual
+ * loading any of our classes later on. It feels nice to relax.
+ * Register The Auto Loader
+ */
+$feedLoader = require_once $feedAutoload;
+
+// Add feed generate console command
+console()->add(new FeedGenerateCommand());
 
 $feeds = registry()->get('plugins.feed.settings.feeds');
 
