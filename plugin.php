@@ -7,6 +7,11 @@ namespace Flextype\Plugin\Feed;
 use Flextype\Plugin\Feed\Console\Commands\Feed\FeedGenerateCommand;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use function Flextype\console;
+use function Flextype\registry;
+use function Flextype\emitter;
+use function Flextype\cache;
+use function Flextype\app;
 
 /**
  * Ensure vendor libraries exist

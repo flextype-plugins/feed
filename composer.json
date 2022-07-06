@@ -16,12 +16,14 @@
       "issues": "https://github.com/flextype-plugins/feed/issues"
     },
     "require": {
-        "php": "^7.4 || ^8.0",
+        "php": "^8.1",
         "ext-json": "*"
     },
     "config": {
         "apcu-autoloader": true,
-        "optimize-autoloader": true
+        "optimize-autoloader": true,
+        "platform-check": false,
+        "sort-packages": true
     },
     "autoload": {
         "classmap": [

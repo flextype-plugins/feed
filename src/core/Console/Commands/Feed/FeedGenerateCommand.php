@@ -22,6 +22,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use function Thermage\div;
 use function Thermage\renderToString;
+use function Flextype\registry;
+use function Flextype\entries;
+use function Glowy\Filesystem\filesystem;
+use function Flextype\Plugin\Twig\twig;
 
 class FeedGenerateCommand extends Command
 {
@@ -41,7 +45,7 @@ class FeedGenerateCommand extends Command
        
         $feedPath = $input->getOption('feed-path') ? $input->getOption('feed-path') : registry()->get('plugins.feed.settings.static.feed_path');
 
-        $staticFeedPath = ROOT_DIR . '/' . $feedPath;
+        $staticFeedPath = FLEXTYPE_ROOT_DIR . '/' . $feedPath;
       
         if ($input->getOption('site-url')) {
             registry()->set('flextype.settings.base_url', $input->getOption('site-url'));
