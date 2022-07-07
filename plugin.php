@@ -12,6 +12,7 @@ use function Flextype\registry;
 use function Flextype\emitter;
 use function Flextype\cache;
 use function Flextype\app;
+use function Glowy\Strings\strings;
 
 /**
  * Ensure vendor libraries exist
