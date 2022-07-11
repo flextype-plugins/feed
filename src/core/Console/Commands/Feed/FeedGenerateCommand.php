@@ -34,7 +34,7 @@ class FeedGenerateCommand extends Command
     {
         $this->setName('feed:generate');
         $this->setDescription('Generate feed.');
-        $this->addOption('feed-path', null, InputOption::VALUE_REQUIRED, 'Destination for generated static feed file (without trailing and without starting slash)');
+        $this->addOption('path', null, InputOption::VALUE_REQUIRED, 'Destination for generated static feed file (without trailing and without starting slash)');
         $this->addOption('site-url', null, InputOption::VALUE_REQUIRED, 'Sit url (without trailing slash).');
     }
 
@@ -44,7 +44,7 @@ class FeedGenerateCommand extends Command
 
         $result = Command::SUCCESS;
        
-        $feedPath = $input->getOption('feed-path') ? $input->getOption('feed-path') : registry()->get('plugins.feed.settings.static.feed_path');
+        $feedPath = $input->getOption('path') ? $input->getOption('path') : registry()->get('plugins.feed.settings.static.path');
 
         $staticFeedPath = FLEXTYPE_ROOT_DIR . '/' . $feedPath;
       
