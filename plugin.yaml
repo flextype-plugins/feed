@@ -1,19 +1,20 @@
 name: Feed
-version: 1.0.0
-description: Feed plugin for Flextype
+version: 2.0.0
+description: Feed plugin for Flextype supports Atom 1.0, RSS and JSON feed types and allows you to generate feeds for entries.
 author:
   name: Sergey Romanenko
-  email: sergey.romanenko@flextype.org
-  url: https://flextype.org
-homepage: https://github.com/flextype-plugins/feed
-documentation: https://github.com/flextype-plugins/feed
+  email: awilum@msm.com
+  url: https://awilum.github.io
+homepage: https://awilum.github.io/flextype/downloads/extend/plugins/feed
+documentation: https://awilum.github.io/flextype/downloads/extend/plugins/feed
 changelog: https://github.com/flextype-plugins/feed/blob/master/CHANGELOG.md
 bugs: https://github.com/flextype-plugins/feed/issues
 icon:
-  name: map-marked-alt
-  set: "fontawesome|solid"
+  name: rss
+  set: fontawesome|solid
+category: seo
 license: MIT
 
 dependencies:
-  flextype: 0.9.16
-  twig: '>=2.0.0'
+  flextype: "^1.0.0-alpha.1"
+  twig: "^3.0.0"
