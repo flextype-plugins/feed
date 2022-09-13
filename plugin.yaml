@@ -1,5 +1,5 @@
 name: Feed
-version: 2.0.0
+version: 2.1.0
 description: Feed plugin for Flextype supports Atom 1.0, RSS and JSON feed types and allows you to generate feeds for entries.
 author:
   name: Sergey Romanenko
@@ -16,5 +16,5 @@ category: seo
 license: MIT
 
 dependencies:
-  flextype: "^1.0.0-alpha.1"
-  twig: "^3.0.0"
+  flextype: "^1.0.0-alpha.2"
+  twig: "^3.1.0"

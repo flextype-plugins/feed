@@ -1,3 +1,9 @@
+# v2.1.0, 2022-09-13
+
+### Features
+
+* **core** Updated code base for new Flextype 1.0.0-alpha.2
+
 # v2.0.0, 2022-07-11
 
 ### Features
